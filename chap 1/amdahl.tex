@@ -1,0 +1,26 @@
+\documentclass{article}
+\usepackage{siunitx}
+\usepackage{amsmath}
+
+\author{CSS APP}
+
+
+
+\begin{document}
+\section*{Amdahl' Formula}
+
+\begin{equation*}
+    T_{\text{new}}= (1 - \alpha)T_{\text{old}} + \frac{(\alpha T{\text{old}}) }{k}
+\end{equation*}
+    \begin{align*}
+        &= T_{\text{old}}[(1 - \alpha) + \frac{\alpha}{k}]
+    \end{align*}
+
+    \begin{align*}
+        S &= \frac{1}{(1 - \alpha) + \alpha + \frac{\alpha}{k}}
+    \end{align*}
+
+
+
+
+\end{document}
