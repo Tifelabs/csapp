@@ -1,0 +1,27 @@
+\documentclass{article}
+\usepackage{siunitx}
+\usepackage{amsmath}  
+
+\title{Practice Problem 1.2}
+\author{CSAPP}
+
+\begin{document}
+
+\maketitle
+
+\section*{Solution}
+
+Using Amdahl's Law:
+
+\begin{equation*}
+    4 = \frac{1}{(1 - 0.9) + \frac{0.9}{k}}
+\end{equation*}
+
+\begin{align*}
+    4 &= \frac{1}{0.1 + 0.9/k} \\
+    0.4 + \frac{3.6}{k} &= 1.0 \\
+    \frac{3.6}{k} &= 0.6 \\
+    k &= 6.0
+\end{align*}
+
+\end{document}
