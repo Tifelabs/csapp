@@ -1,0 +1,67 @@
+\documentclass{article}
+\usepackage{parskip}
+\usepackage{booktabs}
+\usepackage{geometry}
+\geometry{margin=1in}
+\title{Practice Problem 2.6}
+\author{CSAPP}
+\date{}
+\begin{document}
+\maketitle
+
+\begin{flushleft}
+    Using \texttt{show\_int} and \texttt{show\_float}, we determine that the
+    integer 2607352 has hexadecimal representation \texttt{0x0027C8F8}, while
+    the floating-point number 3510593.0 has hexadecimal representation
+    \texttt{0x4A1F23E0}.
+\end{flushleft}
+
+\bigskip
+
+\hspace{1em}\section*{\small Solution A}
+\begin{center}
+    \footnotesize
+    \begin{tabular}{l l l}
+        \toprule
+        \textbf{Hex}    & \texttt{0x0027C8F8} & \texttt{0x4A1F23E0} \\
+        \midrule
+        \textbf{Binary} & \texttt{0000~0000~0010~0111~1100~1000~1111~1000} & \texttt{0100~1010~0001~1111~0010~0011~1110~0000} \\
+        \bottomrule
+    \end{tabular}
+\end{center}
+
+\bigskip
+
+\section*{\small Solution B}
+\begin{center}
+    \footnotesize
+    \begin{tabular}{l l}
+        \toprule
+        \textbf{Binary 1} & \texttt{0000~0010~0111~1100~1000~1111~1000} \\
+        \textbf{Binary 2} & \texttt{0100~1010~0001~1111~0010~0011~1110} \\
+        \textbf{Match}    & \texttt{!x!!~x!!!~!xx!~!!xx~x!x!~xx!!~!xx!} \\
+        \bottomrule
+    \end{tabular}
+\end{center}
+
+\bigskip
+
+\section*{\small Solution C}
+\begin{flushleft}
+    \footnotesize
+    The non-matching parts are the bits that differ after alignment.
+    Specifically:
+    \begin{itemize}
+        \item The leading \texttt{0100~1010} of \texttt{0x4A1F23E0} 
+              (sign bit and exponent field of the float) has no corresponding 
+              match in the integer representation.
+        \item The trailing \texttt{0000} of \texttt{0x4A1F23E0} 
+              (least significant bits of the float) does not appear in the 
+              integer.
+        \item The leading \texttt{0000~0000} of \texttt{0x0027C8F8} 
+              (most significant zero bits of the integer) fall outside the 
+              float's mantissa range.
+    \end{itemize}
+\end{flushleft}
+
+\end{document}
