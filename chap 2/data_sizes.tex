@@ -1,0 +1,32 @@
+\documentclass{article}
+\title{Data Sizes}
+\author{CSAPP}
+\usepackage{booktabs}
+\usepackage{geometry}
+
+\begin{document}
+\maketitle
+\begin{center}
+   \begin{tabular}{p{6cm} r}
+    \textbf{C Declaration} & \textbf{Bytes} 
+\end{tabular} 
+\end{center}
+\begin{center}
+\begin{tabular}{llcc}
+  \toprule
+  \textbf{Signed} & \textbf{Unsigned} & \textbf{32-bit} & \textbf{64-bit} \\
+  \midrule
+  \texttt{[signed] char} & \texttt{unsigned char}    & 1 & 1\\
+  \texttt{short}         & \texttt{unsigned short}   & 2 & 2\\
+  \texttt{int}           & \texttt{unsigned}         & 4 & 4\\
+  \texttt{long}          & \texttt{unsigned long}    & 4 & 8\\
+  \texttt{int32\_t}      & \texttt{uint32\_t}        & 4 & 4\\
+  \texttt{int64\_t}       & \texttt{uint64\_t}       & 8 & 8\\
+  \texttt{char *}        &                           & 4 & 8\\
+  \texttt{float}         &                           & 4 & 4\\
+  \texttt{double}        &                           & 8 & 8\\
+  \bottomrule
+\end{tabular}
+\end{center}
+
+\end{document}
