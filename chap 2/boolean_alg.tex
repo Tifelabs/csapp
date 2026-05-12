@@ -1,0 +1,59 @@
+\documentclass{article}
+\title{Boolean Algebra}
+\author{CSAPP}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\begin{document}
+\maketitle
+
+\begin{center}
+
+    \textbf{\small NOT}\\[0.5em]
+    \begin{tabular}{cc}
+        \toprule
+        $\sim $ & \texttt{Result} \\
+        \midrule
+        \texttt{0} & \texttt{1} \\
+        \texttt{1} & \texttt{0} \\
+        \bottomrule
+    \end{tabular}
+
+    \bigskip
+
+    \textbf{\small AND}\\[0.5em]
+    \begin{tabular}{ccc}
+        \toprule
+        \texttt{\&} & \texttt{0} & \texttt{1} \\
+        \midrule
+        \texttt{0}  & \texttt{0} & \texttt{0} \\
+        \texttt{1}  & \texttt{0} & \texttt{1} \\
+        \bottomrule
+    \end{tabular}
+
+    \bigskip
+
+    \textbf{\small OR}\\[0.5em]
+    \begin{tabular}{ccc}
+        \toprule
+        \texttt{|} & \texttt{0} & \texttt{1}\\
+        \midrule
+        \texttt{0} & \texttt{0} & \texttt{1}\\
+        \texttt{1} & \texttt{1} & \texttt{1}\\
+        \bottomrule
+    \end{tabular}
+
+    \bigskip
+
+    \textbf{\small EXCLUSIVE OR}\\[0.5em]
+    \begin{tabular}{ccc}
+        \toprule
+        \texttt{\^} & \texttt{0} & \texttt{1}\\
+        \midrule
+        \texttt{0} & \texttt{0} & \texttt{1}\\
+        \texttt{1} & \texttt{1} & \texttt{0}\\
+        \bottomrule
+    \end{tabular}
+
+\end{center}
+\end{document}
