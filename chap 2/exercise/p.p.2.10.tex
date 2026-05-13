@@ -1,0 +1,32 @@
+\documentclass{article}
+\title{Pratice Problem 2.10}
+\author{CSAPP}
+\usepackage{booktabs}
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{solarized-light}
+\usepackage{geometry}
+\usepackage{tabularx}
+
+\begin{document}
+    \maketitle
+
+    \begin{lstlisting}[language=C]
+        void inplace_swap(int *x, int *y){
+            *y = *x ^ *y;   /* Step 1 */
+            *x = *x ^ *y;   /* Step 2 */
+            *y = *x ^ *y;   /* Step 3 */
+        }
+    \end{lstlisting}
+
+    \begin{center}
+        \begin{tabular}{llll}
+            \texttt{Step}       &   \texttt{*x}     &   \texttt{*y}\\
+            \midrule
+            \texttt{Initially}  &   \texttt{a}      &   \texttt{b}\\
+            \texttt{Step 1}     &   \texttt{a}      &   \text{a $\oplus$ b}\\
+            \texttt{Step 2}     &   \texttt{a $\oplus$ (a $\oplus$ b) =(a $\oplus$ a) = $\oplus$ b = b} & a $\oplus$ b\\
+            \texttt{Step 3}     &   \texttt{b}      &   \texttt{b $\oplus$ (b $\oplus$ a) =(b $\oplus$ b) = $\oplus$ a = a}\\
+        \end{tabular}
+    \end{center}
+\end{document}
