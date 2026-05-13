@@ -1,0 +1,52 @@
+\documentclass{article}
+\title{Pratice Problem 2.11}
+\author{CSAPP}
+
+\usepackage{booktabs}
+\usepackage{listings}
+\usepackage{parskip}
+\usepackage{solarized-light}
+
+\begin{document}
+    \maketitle
+
+        \begin{flushleft}
+        \texttt{Armed} with the function inplace\_swap from
+        Problem 2.10. you decide to write code that will reverse the elements
+        of an array by swapping the elements from opposite ends of the array,
+        working toward the middle.\\
+        You arrived at the following function
+            \smallskip
+            \begin{lstlisting}{language=C}
+                void reverse_array(int a[], int cnt){
+                    int first, last;
+                    for(first = 0, last = cnt - 1;
+                    first <= last; 
+                    first++, last--)
+                    inplace_swap(&a[first], &a[last]);
+                }
+            \end{lstlisting}
+
+            \section*{\small Solution A}
+            For an array of odd lenght cnt = 2k + 1, what are the values of 
+            the variables first and last in the final iteration of the function
+            reverse\_aray?\\
+            Answer\\
+            Both first and last will have value of k, so we can attempt
+            to swap the middle element.
+
+            \section*{\small Solution B}
+            Why does this call to function inplace\_swap set the array
+            elements to 0.\\
+            Answer\\
+            This is because our function assummes x and y denotes different locations
+
+            \section*{\small Solution C}
+            What simple modification to the code for reverse\_array would 
+            eliminate this Problem?\\
+            Answer\\
+            We have to replace the code in line 4 of reverse\_array to be 
+            first < last. 
+        \end{flushleft}
+
+\end{document}
