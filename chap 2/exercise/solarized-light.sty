@@ -1,0 +1,58 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{solarized-light}[2026/05/12 Solarized Light code listing style]
+
+\RequirePackage{listings}
+\RequirePackage{xcolor}
+
+% Solarized Light Palette
+\definecolor{solbase03}{HTML}{002B36}
+\definecolor{solbase02}{HTML}{073642}
+\definecolor{solbase01}{HTML}{586E75}
+\definecolor{solbase00}{HTML}{657B83}
+\definecolor{solbase0}{HTML}{839496}
+\definecolor{solbase1}{HTML}{93A1A1}
+\definecolor{solbase2}{HTML}{EEE8D5}
+\definecolor{solbase3}{HTML}{FDF6E3}
+
+\definecolor{solyellow}{HTML}{B58900}
+\definecolor{solorange}{HTML}{CB4B16}
+\definecolor{solred}{HTML}{DC322F}
+\definecolor{solmagenta}{HTML}{D33682}
+\definecolor{solviolet}{HTML}{6C71C4}
+\definecolor{solblue}{HTML}{268BD2}
+\definecolor{solcyan}{HTML}{2AA198}
+\definecolor{solgreen}{HTML}{859900}
+
+% Solarized Light Style for listings
+\lstdefinestyle{solarized-light}{
+    backgroundcolor     = \color{solbase3},
+    basicstyle          = \ttfamily\footnotesize\color{solbase00},
+    identifierstyle     = \color{solbase00},
+    commentstyle        = \color{solbase01}\itshape,
+    keywordstyle        = \color{solgreen}\bfseries,
+    numberstyle         = \tiny\color{solbase1},
+    stringstyle         = \color{solcyan},
+    % Additional useful options
+    emphstyle           = \color{solblue}\bfseries,
+    moredelim           = [is][\color{solred}]{\%\%}{\%\%}, % optional: highlight %% comments differently
+    %
+    breakatwhitespace   = false,
+    breaklines          = true,
+    captionpos          = b,
+    keepspaces          = true,
+    numbers             = left,
+    numbersep           = 8pt,
+    showspaces          = false,
+    showstringspaces    = false,
+    showtabs            = false,
+    tabsize             = 4,
+    frame               = single,
+    rulecolor           = \color{solbase1},
+    frameround          = tttt,     % rounded corners (optional)
+    framesep            = 4pt,
+    xleftmargin         = 12pt,
+    xrightmargin        = 12pt,
+}
+
+% Apply the style globally
+\AtBeginDocument{\lstset{style=solarized-light}}
