@@ -1,0 +1,38 @@
+\documentclass{article}
+\title{Pratice Problem 2.9}
+\author{CSAPP}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{parskip}
+
+\begin{document}
+    \maketitle
+
+    \begin{center}
+        \begin{tabular}{cccc}
+        \texttt{R}  &   \texttt{G}  &   \texttt{B}  &   \texttt{Color}\\
+        \midrule
+        \texttt{0}  &   \texttt{0}  &   \texttt{0}  &   \texttt{Black}\\
+        \texttt{0}  &   \texttt{0}  &   \texttt{1}  &   \texttt{Blue}\\
+        \texttt{0}  &   \texttt{1}  &   \texttt{0}  &   \texttt{Green}\\
+        \texttt{0}  &   \texttt{1}  &   \texttt{1}  &   \texttt{Cyan}\\
+        \texttt{1}  &   \texttt{0}  &   \texttt{0}  &   \texttt{Red}\\
+        \texttt{1}  &   \texttt{0}  &   \texttt{1}  &   \texttt{Magenta}\\
+        \texttt{1}  &   \texttt{1}  &   \texttt{0}  &   \texttt{Yellow}\\
+        \texttt{1}  &   \texttt{1}  &   \texttt{1}  &   \texttt{White}\\
+        \end{tabular}
+    \end{center}
+
+    \section*{\small Solution A}
+    \begin{flushleft}
+        Colors are complemented by complementing the values of 
+        \texttt{R, G and B}.\newline \texttt{White} is a complement of \texttt{Black}, 
+        \texttt{Yellow} is a complement of \texttt{Blue} and \texttt{Magenta} is the complement of \texttt{Green}
+        and \texttt{Cyan} is the complement of \texttt{Red}.
+    \end{flushleft}  
+
+    \section*{\small Solution B}
+    \texttt{Blue \texttt{(001)} | Green \texttt{(010)}} = \texttt{Cyan \texttt{(011)}}
+    \newline\texttt{Yellow \texttt{(110)} \& Cyan \texttt{(011)}} = \texttt{Green \texttt{(010)}}
+    \newline\texttt{Red \texttt{(100)} $\land$ Magenta \texttt{(101)}} = \texttt{Blue\texttt{(001)}}
+\end{document}
