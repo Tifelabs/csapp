@@ -1,0 +1,42 @@
+\documentclass{article}
+\title{Pratice Problem 2.14}
+\author{CSAPP}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{parskip}
+\usepackage{amssymb}
+
+\begin{document}
+    \maketitle
+
+    \begin{center}
+        \texttt{Template}\vspace{0.5em}\\
+        \begin{tabular}{cc}
+            \texttt{Expression} & \texttt{Result}\\
+            \midrule
+            \texttt{!0x41}          & \texttt{0x00}\\
+            \texttt{!0x00}          & \texttt{0x01}\\
+            \texttt{!!0x41}         & \texttt{0x01}\\
+            \texttt{0x69 \&\& 0x55} & \texttt{0x01}\\
+            \texttt{0x69 || 0x55}   & \texttt{0x01}\\
+        \end{tabular} 
+    \end{center}
+    
+    \begin{flushleft}
+        Suppose that \texttt{a and b} have byte values \texttt{0x55}\\
+        and \texttt{0x46} respectively. Fill in the foollowing table
+        indicating the bytes values of the different C expression
+        \smallskip
+
+        \begin{tabular}{cccc}
+            \texttt{Expression} & \texttt{Value} & \texttt{Expression} & \texttt{Value}\\
+            \midrule
+            \texttt{a \& b}     &  \texttt{0x44} & \texttt{a \&\& b}   &  \texttt{0x01}\\
+            \texttt{a | b}      &  \texttt{0x57} & \texttt{a || b}     &  \texttt{0x01}\\
+            \texttt{$\backsim a$ | $\backsim b$} & \texttt{0xBB} & \texttt{!a || !b}     &  \texttt{0x00}\\
+            \texttt{a \& !b}     &  \texttt{0x00} & \texttt{a \&\& $\backsim b$ }   &  \texttt{0x01}\\
+        \end{tabular}
+    \end{flushleft}
+    
+\end{document}
