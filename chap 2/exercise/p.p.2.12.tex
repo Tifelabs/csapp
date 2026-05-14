@@ -1,0 +1,27 @@
+\documentclass{article}
+\title{Pratice Problem 2.12}
+\author{CSAPP}
+
+\usepackage{booktabs}
+\usepackage{parskip}
+
+\begin{document}
+    \maketitle
+    \begin{flushleft}
+        Write a C expression, in terms of variable x, for the following values.
+        Your code should work for any word size w >= 8. For reference, we show the result of
+        evaluating the expression for x = 0x87654321, with w = 32 \vspace{0.5em}\\
+        (A) The least significant byte of x, with all other bits set
+        to 0 \texttt{[0x00000021]} \vspace{0.5em}\\
+        (B)All but the least significant byte of x complemented, with the least
+        significant byte left unchanged.\texttt{[0x789ABC21]}\vspace{0.5em}\\
+        (C)The least significant byte set to all ones, and all other bytes of
+        x left unchanged. \texttt{[0x876543FF]}
+        \bigskip
+
+        \section*{\small Solution}
+        (A) \texttt{x \& 0xFF}\\
+        (B) \texttt{x $\oplus$~0xFF}\\
+        (C) \texttt{x | 0xFF}
+    \end{flushleft}
+\end{document}
