@@ -1,0 +1,50 @@
+\documentclass{article}
+\title{Practice Problem 2.16}
+\author{CSAPP}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{parskip}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage[table]{xcolor}
+\usepackage[margin=1in]{geometry}
+
+\definecolor{headergreen}{RGB}{220, 235, 220}
+
+\begin{document}
+	\maketitle
+
+	\begin{flushleft}
+		Fill in the table below showing the effects of the different
+		shift operations on the single-byte quantities. The best way to think
+		about shift operations is to work with binary representation. Convert
+		the initial values back to hexadecimal. Each of the answers should
+		be 8 binary digits or 2 hexadecimal digits.
+	\end{flushleft}
+
+	\begin{center}
+		\setlength{\tabcolsep}{4pt}
+		\renewcommand{\arraystretch}{2}
+		\begin{tabular}{|p{1.0cm}|p{2.1cm}|p{2.1cm}|p{1.0cm}|p{2.1cm}|p{1.0cm}|p{2.1cm}|p{1.0cm}|}
+			\hline
+			\rowcolor{headergreen}
+			\multicolumn{2}{|c|}{$a$}                 &
+			\multicolumn{2}{c|}{$a \ll 2$}            &
+			\multicolumn{2}{c|}{Logical $a \gg 3$}    &
+			\multicolumn{2}{c|}{Arithmetic $a \gg 3$} \\
+			\hline
+			\texttt{Hex} & \texttt{Binary} & \texttt{Binary} & \texttt{Hex} &
+			\texttt{Binary} & \texttt{Hex} & \texttt{Binary} & \texttt{Hex}  \\
+			\hline
+			\texttt{0xD4} & \texttt{11010100} & \texttt{01010000} & \texttt{0x50} & \texttt{00011010} & \texttt{0x1A} & \texttt{11111010} & \texttt{0xFA} \\
+			\hline
+			\texttt{0x64} & \texttt{01100100} & \texttt{10010000} & \texttt{0x90} & \texttt{00001100} & \texttt{0x0C} & \texttt{00001100} & \texttt{0x0C} \\
+			\hline
+			\texttt{0x72} & \texttt{01110010} & \texttt{11001000} & \texttt{0xC8} & \texttt{00001110} & \texttt{0x0E} & \texttt{00001110} & \texttt{0x0E} \\
+			\hline
+			\texttt{0x44} & \texttt{01000100} & \texttt{00010000} & \texttt{0x10} & \texttt{00001000} & \texttt{0x08} & \texttt{00001000} & \texttt{0x08} \\
+			\hline
+		\end{tabular}
+	\end{center}
+
+\end{document}
