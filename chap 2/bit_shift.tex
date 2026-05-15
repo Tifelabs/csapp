@@ -1,0 +1,23 @@
+\documentclass{article}
+\title{Shift Operations In C}
+\author{CSAPP}
+
+\usepackage{booktabs}
+\usepackage{tabularx}
+
+\begin{document}
+    \maketitle
+
+    \small
+    \texttt{Sample}
+    \begin{center}
+        \begin{tabular}{ccc}
+            \texttt{Operation}          &   \texttt{Value 1}    & \texttt{Value 2}\\
+            \midrule
+            \texttt{Argument x}         &   \texttt{[0110~0011]} & \texttt{[1001~0101]}\\
+            \texttt{x << 4}             &   \texttt{[0011~0000]} & \texttt{[0101~0000]}\\
+            \texttt{x >> 4(Logical)}    &   \texttt{[0000~0110]} & \texttt{[0000~1001]}\\
+            \texttt{x >> 4(Arithmetic)} &   \texttt{[0000~0110]} & \texttt{[1111~1001]}\\ 
+        \end{tabular}
+    \end{center}
+\end{document}
