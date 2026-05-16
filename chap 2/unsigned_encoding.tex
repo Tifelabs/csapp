@@ -1,0 +1,27 @@
+\documentclass{article}
+\title{Definition of Unsigned Encoding}
+\author{CSAPP}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{physics}
+\usepackage{parskip}
+\begin{document}
+\maketitle
+\begin{flushleft}
+    For vector
+    \[\vec{x} = [x_{w-1}, x_{w-2}, \ldots, x_{0}]\]
+
+    \[B2U_w(\vec{x}) \doteq \sum_{i=0}^{w-1} x_i \cdot 2^i\]
+
+\textbf{Note}\\
+    In the equation, the notation $\doteq$ means that the left-hand
+    side is defined to be equal to the right-hand side. The function $B2U_w$ maps strings of
+    zeros and ones of length $w$ to nonnegative integers. $UMax_4 \doteq \sum_{i=0}^{w-1} 2^i = 2^w - 1$
+
+\textbf{Sample}\\
+    \[B2U_{4}(0001) = 0\cdot2^3 + 0\cdot2^2 + 0\cdot2^1 + 1\cdot2^0 = 0+0+0+1 = 1\]
+    \[B2U_{4}(0101) = 0\cdot2^3 + 1\cdot2^2 + 0\cdot2^1 + 1\cdot2^0 = 0+4+0+1 = 5\]
+    \[B2U_{4}(1011) = 1\cdot2^3 + 0\cdot2^2 + 1\cdot2^1 + 1\cdot2^0 = 8+0+2+1 = 11\]
+    \[B2U_{4}(1111) = 1\cdot2^3 + 1\cdot2^2 + 1\cdot2^1 + 1\cdot2^0 = 8+4+2+1 = 15\]
+\end{flushleft}
+\end{document}
