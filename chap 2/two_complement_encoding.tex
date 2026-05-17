@@ -1,0 +1,49 @@
+\documentclass{article}
+\title{Two's Complement Encodings}
+\author{CSAPP}
+\usepackage{booktabs}
+\usepackage{physics}
+\usepackage{amsmath}
+\usepackage{parskip}
+\begin{document}
+\maketitle
+\begin{flushleft}
+\textbf{Definition}\\
+    Definition of two's complement encoding.\\
+    For vector
+    \[\vec{x} = [x_{w-1}, x_{w-2}, \ldots, x_{0}]\]
+    \[B2T_w(\vec{x}) \doteq -x_{w-1} \cdot 2^{w-1} + \sum_{i=0}^{w-2} x_{i} \cdot 2^{i}\]
+
+\textbf{Note}\\
+    The most significant bit $x_{w-1}$ is also called the sign bit. Its
+    weight is $-2^{w-1}$, the negation of its weight in an unsigned representation.
+    When the sign bit is set to 1, the represented value is negative, and when set to
+    0, the value is nonnegative.
+
+\smallskip
+\textbf{Range}\\
+    Two's complement representation has an asymmetric range. For a word size of $w$ bits,
+    the minimum and maximum representable values are defined as:
+    \[TMin_w \doteq -2^{w-1}\]
+    \[TMax_w \doteq 2^{w-1} - 1\]
+    For example, with $w = 4$:
+    \[TMin_4 = -2^3 = -8\]
+    \[TMax_4 = 2^3 - 1 = 7\]
+
+\textbf{Note}\\
+    Observe that $|TMin_w| = TMax_w + 1$. That is, the range of negative numbers is
+    one larger than the range of positive numbers. This asymmetry arises because zero
+    is considered nonnegative, so the positive range loses one value. As a consequence,
+    arithmetic operations on two's complement numbers can sometimes lead to overflow
+    at the negative end without a symmetric positive counterpart. Note also that
+    $TMax_w + 1 = TMin_w$ under two's complement arithmetic, which is a common
+    source of subtle bugs in systems programming.
+
+\smallskip
+\textbf{Sample}\\
+    \[B2T_{4}(0001) = -0\cdot2^3 + 0\cdot2^2 + 0\cdot2^1 + 1\cdot2^0 = 0+0+0+1 = 1\]
+    \[B2T_{4}(0101) = -0\cdot2^3 + 1\cdot2^2 + 0\cdot2^1 + 1\cdot2^0 = 0+4+0+1 = 5\]
+    \[B2T_{4}(1011) = -1\cdot2^3 + 0\cdot2^2 + 1\cdot2^1 + 1\cdot2^0 = -8+0+2+1 = -5\]
+    \[B2T_{4}(1111) = -1\cdot2^3 + 1\cdot2^2 + 1\cdot2^1 + 1\cdot2^0 = -8+4+2+1 = -1\]
+\end{flushleft}
+\end{document}
