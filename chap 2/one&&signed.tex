@@ -1,0 +1,23 @@
+\documentclass{article}
+\title{\small ONES'COMPLEMENT AND BINARY TO SIGNED}
+\author{CSAPP}
+\usepackage{physics}
+\usepackage{parskip}
+
+\begin{document}
+    \maketitle
+    \textbf{One's Complement}
+    \begin{center}
+        The Most significant: $-(2^w-1 - 1)$
+        \smallbreak
+        \[B2O_w(\vec{x}) \doteq -x_w-1(2^w-1 - 1) + \sum_{i=0}^{w-2}x_i2^i\]
+    \end{center}
+    \smallskip
+    \textbf{Signed Magnitude}
+    \begin{center}
+        The most significant bit is a sign bit that determines whether the remaining bits
+        should be given negative or positive weight.
+         \[B2S_w(\vec{x}) \doteq (-1)^{x_{w-1}} \cdot \sum_{i=0}^{w-2} x_i \cdot 2^i\]
+
+    \end{center}
+\end{document}
