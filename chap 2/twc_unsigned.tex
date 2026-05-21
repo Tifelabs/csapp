@@ -1,0 +1,27 @@
+\title{Conversion from Two's Complement to Unsigned}
+\author{CSAPP}
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{parskip}
+
+\begin{document}
+\maketitle
+
+    \begin{flushleft}
+        \textbf{\small PRINCIPLE:} Conversion from two's complement to unsigned.\\
+        For $TMin_w \leq x \leq TMax_w$:
+
+        \[
+        T2U_w(x) = \begin{cases} x & \text{if } x \geq 0 \\ x + 2^w & \text{if } x < 0 \end{cases}
+        \]
+    \end{flushleft}
+    \smallskip
+        \textbf{\small Conversion from Unsigned to Two's Complement} Unsigned to two's complement\\
+        For $u$ such that $0 \leq u \leq UMax_w:$
+
+        \[
+            U2T_w(u) = \begin{cases} u, & u \leq TMax_w \\ 
+            u - 2 ^w, & u > TMax_w\end{cases}
+        \]
+
+\end{document}
