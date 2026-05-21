@@ -1,0 +1,27 @@
+\documentclass{article}
+\title{Pratice Problem 2.21}
+\author{CSAPP}
+
+\usepackage{tabularx, amsmath,booktabs}
+
+\begin{document}
+    \maketitle
+    \begin{flushleft}
+        Assuming the expression are evaluated when executing a $32-bit$
+        program on a machine that uses twos complement arithmetic, Fill
+        the following table describing the effects of casting and relational
+        operations.
+        \smallbreak
+
+        \begin{tabular}{ccc}
+            Expression & Type & Evaluation\\
+            \midrule
+            $-2147483647 - 1 == 2147483648U$ & \texttt{Unsigned} & $1$\\
+            $-2147483647 - 1 < 2147483648$   & \texttt{Signed}   & $1$\\
+            $-2147483647 - 1U < 2147483648$  & \texttt{Unsigned} & $0$\\
+            $-2147483647 - 1 < -2147483648$  & \texttt{Signed}   & $1$\\
+            $-2147483647 - 1U < -2147483648$ & \texttt{Unsigned} & $1$
+            
+        \end{tabular}
+    \end{flushleft}
+\end{document}
