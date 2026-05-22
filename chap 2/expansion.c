@@ -1,9 +1,10 @@
 #include <stdio.h>
+#include <stddef.h>
 
 typedef unsigned char *byte_pointer;
 
 void show_bytes(byte_pointer start, size_t len){
-    for(int i = 0; i < len; i++){
+    for(size_t i = 0; i < len; i++){
         printf(" %.2x",start[i]);
     }
     printf("\n");
@@ -19,7 +20,7 @@ int main(){
     printf("sx = %d:\t", sx);
     show_bytes((byte_pointer) &sx, sizeof(short));
 
-    printf("usx = %d:\t", usx);
+    printf("usx = %u:\t", usx);
     show_bytes((byte_pointer) &usx, sizeof(unsigned short));
 
     printf("x   = %d:\t", x);
