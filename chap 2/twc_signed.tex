@@ -1,0 +1,37 @@
+\documentclass{article}
+\title{Expansion of a Two's Complement Number by Sign Extension}
+\author{CSAPP}
+\usepackage{amsmath,booktabs}
+\usepackage{amssymb}
+
+\begin{document}
+\maketitle
+
+\begin{flushleft}
+\textbf{\small DERIVATION: } Expansion of a two's complement number by
+sign extension.\\[6pt]
+Let $w' = w + k$. What we want to prove is that:
+
+\[
+    B2T_{w+k}\left([\underbrace{x_{w-1}, \ldots, x_{w-1}}_{k \text{ times}},
+    x_{w-2}, \ldots, x_0]\right) = B2T_w([x_{w-1}, x_{w-2}, \ldots, x_0])
+\]
+
+\noindent The expansion of the left-hand side gives:
+
+    \begin{align*}
+        B2T_{w+k}&\left([\underbrace{x_{w-1}, \ldots, x_{w-1}}_{k \text{ times}},
+        x_{w-2}, \ldots, x_0]\right) \\
+        &= -x_{w-1} 2^{w+k-1} + \sum_{i=0}^{w-1} x_i 2^i \\
+        &= -x_{w-1} 2^{w+k-1} + x_{w-1} 2^{w+k-2} + \cdots + x_{w-1} 2^{w-1}
+        + \sum_{i=0}^{w-2} x_i 2^i \\
+        &= x_{w-1}\left(-2^{w+k-1} + \sum_{j=w-1}^{w+k-2} 2^j\right)
+        + \sum_{i=0}^{w-2} x_i 2^i \\
+        &= x_{w-1}\left(-2^{w+k-1} + 2^{w+k-1} - 2^{w-1}\right)
+        + \sum_{i=0}^{w-2} x_i 2^i \\
+        &= -x_{w-1} 2^{w-1} + \sum_{i=0}^{w-2} x_i 2^i \\
+        &= B2T_w([x_{w-1}, x_{w-2}, \ldots, x_0])
+    \end{align*}
+
+\end{flushleft}
+\end{document}
