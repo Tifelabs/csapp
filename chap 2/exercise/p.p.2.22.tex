@@ -1,0 +1,30 @@
+\documentclass{article}
+\title{Practice Problem 2.22}
+\author{CSAPP}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\begin{document}
+\maketitle
+
+\noindent Show that each of the following bit vectors is a two's complement
+representation of $-4$ by applying Equation:
+
+\[
+    B2T_w(\vec{x}) \doteq -x_{w-1} \cdot 2^{w-1} + \sum_{i=0}^{w-2} x_i \cdot 2^i
+\]
+
+\begin{align*}
+    \textbf{A.} \quad [1100]   &= -1\cdot2^3 + 1\cdot2^2 + 0\cdot2^1 + 0\cdot2^0 \\
+                               &= -8 + 4 + 0 + 0 \\
+                               &= -4\\
+    \textbf{B.} \quad [11100]  &= -1\cdot2^4 + 1\cdot2^3 + 1\cdot2^2 + 0\cdot2^2 + 0\cdot2^1 + 0\cdot2^0\\
+                               &= -16 + 8 + 4 + 0 + 0 + 0\\
+                               &= -4\\
+    \textbf{B.} \quad [111100] &= -1\cdot2^5 +1\cdot2^4 + 1\cdot2^3 + 1\cdot2^2 + 0\cdot2^2 + 0\cdot2^1 + 0\cdot2^0\\
+                               &= -32 + 16 + 8 + 4 + 0 + 0 + 0\\
+                               &= -4\\
+\end{align*}    
+
+\end{document}
