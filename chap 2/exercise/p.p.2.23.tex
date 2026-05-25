@@ -1,0 +1,53 @@
+\documentclass{article}
+\title{Practice Problem 2.23}
+\author{CSAPP}
+\usepackage{listings, booktabs, parskip}
+\usepackage{solarized-light}
+\usepackage{tabularx}
+\begin{document}
+\maketitle
+\noindent \textbf{ Consider the following C function }
+\begin{center}
+\begin{lstlisting}[language=C]
+        #include <stdio.h>
+        int fun1(unsigned word){
+            return (int) ((word << 24) >> 24);
+        }
+        int fun2(unsigned word){
+            return ((int) word << 24) >> 24;
+        }
+\end{lstlisting}
+\end{center}
+\begin{flushleft}
+        A. Assume these are executed as a 32-bit program on a machine that 
+        uses two's complement arithmetic. Assume also that right shifts of signed values are
+        performed arithmetically, while right shifts of unsigned values are performed logically.
+\smallbreak
+\begin{tabular}{ccc}
+\textbf{w}          & \textbf{fun1(w)} & \textbf{fun2(w)} \\
+\midrule
+\texttt{0x00000076} & \texttt{0x00000076} & \texttt{0x00000076}\\
+\texttt{0x87654321} & \texttt{0x00000021} & \texttt{0x00000021}\\
+\texttt{0x000000C9} & \texttt{0x000000C9} & \texttt{0xFFFFFFC9}\\
+\texttt{0xEDCBA987} & \texttt{0x00000087} & \texttt{0xFFFFFF87}\\
+\bottomrule
+\end{tabular}
+\\
+\bigskip
+        B. \textbf{fun1} extracts the least significant byte of \texttt{word} and
+        zero-extends it to a 32-bit \texttt{int}. Because both shifts are performed on an
+        \texttt{unsigned} value, the right shift fills with zeros regardless of the byte's
+        top bit. The result is always in the range $[0,\, 255]$, equivalent to casting the
+        low byte as \texttt{(unsigned char)}.
+
+        \medskip
+        \textbf{fun2} extracts the least significant byte of \texttt{word} and
+        sign-extends it to a 32-bit \texttt{int}. The cast to \texttt{int} before the left
+        shift means the subsequent arithmetic right shift propagates the byte's most
+        significant bit (bit 7) through the upper 24 bits. The result is in the range
+        $[-128,\, 127]$, equivalent to casting the low byte as \texttt{(signed char)}.
+        The two functions produce identical results only when bit 7 of the low byte is 0
+        (i.e.\ the byte value is less than \texttt{0x80}); otherwise \textbf{fun2} yields
+        a negative number while \textbf{fun1} yields a positive one.
+\end{flushleft}
+\end{document}
