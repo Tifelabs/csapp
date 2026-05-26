@@ -1,0 +1,28 @@
+\documentclass{article}
+\title{Practice Problem 2.24}
+\author{CSAPP}
+
+\usepackage{booktabs, tabularx, parskip}
+
+\begin{document}
+    \maketitle
+    \begin{flushleft}
+        Suppose we truncate a $4-bit$ value (represented by hex digits $0$ through $F$)
+        to a $3-bit$ value (represented as hex digits $0$ through $7$). Fill in the table
+        below showing the effect of this truncation for some cases, in terms of the 
+        unsigned and two's complement interpretations of those bit patterns.
+    \small  
+    \begin{tabular}{cc|cc|cc}
+        \toprule
+        \multicolumn{2}{c|}{\textbf{Hex}} & \multicolumn{2}{c|}{\textbf{Unsigned}} & \multicolumn{2}{c}{\textbf{Two's Complement}} \\
+        \textbf{Original} & \textbf{Truncated} & \textbf{Original} & \textbf{Truncated} & \textbf{Original} & \textbf{Truncated} \\
+        \midrule
+        $1$ &  $1$ & $1$  & $1$    & $1$  & $1$\\
+        $3$ &  $3$ & $3$  & $3$    & $3$  & $3$\\
+        $5$ &  $5$ & $5$  & $5$    & $5$  & $5$\\
+        $C$ &  $4$ & $12$ & $4$   & $-4$ & $4$\\
+        $E$ &  $6$ & $14$ & $6$   & $-2$ & $6$\\
+        \bottomrule
+\end{tabular}
+    \end{flushleft}
+\end{document}
