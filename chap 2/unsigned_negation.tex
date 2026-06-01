@@ -1,0 +1,27 @@
+\documentclass{article}
+\title{Unsigned Negation}
+\author{CSAPP}
+\usepackage{booktabs, amssymb, amsmath, physics, parskip, mathtools}
+
+\begin{document}
+\maketitle
+
+\begin{flushleft}
+\textbf{\small PRINCIPLE:} \texttt{Unsigned Negation }\\
+For any number $x$ such that $0 \leq x < 2^w$, its $w-bit$ Unsigned
+nagation $-^u_w$ given by :
+\[
+    -^u_w x = \begin{cases}
+        x,       & x = 0\\
+        2^w - x  & x > 0 
+    \end{cases}
+\]
+
+\smallskip
+\textbf{\small DERIAVATION:} \texttt{Unsigned negation}\\
+    When $x = 0$, the additive inverse is clearly $0$. For $x > 0$, consider
+    the value $2^w-x$.Obseerver that this number is in the range $0 < 2^w - x < 2^w$. We can
+    see that $(x+2^w-x) mod 2^w = 2^w mod 2^w = 0$
+\end{flushleft}
+
+\end{document}
