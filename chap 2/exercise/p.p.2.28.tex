@@ -1,0 +1,37 @@
+\documentclass{article}
+\title{Practice Problem 2.28}
+\author{CSAPP}
+\usepackage{booktabs, amssymb, parskip, amsmath, tabularx}
+
+\begin{document}
+    \maketitle
+    \begin{flushleft}
+        We can represent a bit pattern of of length $w = 4$
+        with a single $hex$ digit. For unsigned representation of these
+        digit, using equation: \\
+
+        \[
+         -^u_w x = \begin{cases}
+         x,       & x = 0\\
+         2^w - x  & x > 0 
+        \end{cases}
+        \]
+        to fill in the following table giving the values and the bit representations
+        $(in hex)$ of the unsigned additive inverses of the digits shown
+        \\
+
+        \begin{tabular}{cc|cc}
+        \toprule
+        \multicolumn{2}{c|}{$x$} & \multicolumn{2}{c}{$4 -^u x$} \\
+        \midrule
+        Hex & Decimal & Decimal & Hex \\
+        \midrule
+        $1$ & $1$  & $15$ & $F$\\
+        $4$ & $4$  & $12$ & $C$\\
+        $7$ & $7$  & $9$  & $9$\\
+        $A$ & $10$ & $6$  & $6$\\
+        $E$ & $14$ & $2$  & $2$\\
+        \bottomrule
+        \end{tabular}
+    \end{flushleft}
+\end{document}
