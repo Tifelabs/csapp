@@ -1,0 +1,27 @@
+\documentclass{article}
+\title{Unsigned Addition}
+\author{CSAPP}
+\usepackage{booktabs, amssymb, amsmath, physics, parskip, mathtools}
+
+\begin{document}
+\maketitle
+
+\begin{flushleft}
+\textbf{\small PRINCIPLE:} \texttt{Unsigned Addition}\\
+For $x$ and $y$ such that $0 \leq x, y < 2^w$:
+\[
+    x +^u_w y = \begin{cases}
+        x + y,       & x + y < 2^w                      \quad \text{Normal}   \\
+        x + y - 2^w, & 2^w \leq x + y < 2^{w+1}         \quad \text{Overflow}
+    \end{cases}
+\]
+
+\smallskip
+\textbf{Detecting overflow of Unsigned Addition}
+
+For $0 \leq x, y \leq U_{\max}$, let $s \coloneqq x +^u_w y$.
+
+The computation of $s$ overflowed if and only if $s < x$ (or equivalently, $s < y$).
+\end{flushleft}
+
+\end{document}
