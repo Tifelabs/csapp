@@ -1,0 +1,19 @@
+\documentclass{article}
+\title{Two's Complement Addition}
+\author{CSAPP}
+\usepackage{booktabs, amssymb, amsmath}
+
+\begin{document}
+    \maketitle
+    \begin{flushleft}
+        \textbf{\small PRINCIPLE:} Two's complement Addition\\
+        For integer values $x$ and $y$ in the range $-2^w-1 \leq x, y \leq 2^{w-1} -1$
+        \[
+            x+^t_w y = \begin{cases}
+                x+y-2^w, & 2^{w-1} \leq x+ y  \qquad  \text{Positive Overflow}\\
+                x+y,     & -2^{w-1} \leq x+y < 2^{w-1} \qquad \text{Normal}\\
+                x+y+2^w, & x+y < -2^{w-1}   \qquad \text{Negative Overflow}           
+            \end{cases}
+        \]
+    \end{flushleft}
+\end{document}
