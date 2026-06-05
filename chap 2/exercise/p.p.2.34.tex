@@ -1,0 +1,26 @@
+\documentclass{article}
+\title{Practice Problem 2.34}
+\author{CSAPP}
+\usepackage{amsmath, booktabs, tabularx, parskip, amssymb}
+
+\begin{document}
+    \maketitle
+    \begin{flushleft}
+        Fill in the following table showing the results of multiplying different 3-bit
+        numbers.
+    \small
+    \begin{tabular}{ccccc}
+        \text{Mode} & $x$ & $y$ & $x \cdot y$ & \text{Truncated $x \cdot y$}\\
+        \midrule
+        \text{Unsigned} & $4$ $[100]$ & $5$ $[101]$ & $20$ $[010100]$ & $4$ $[100]$\\
+        \text{Two's complement} & $-4$ $[100]$ & $-3$ $[101]$ & $12$ $[001100]$ & $-4$ $[100]$\\\\
+        
+        \text{Unsigned} & $2$ $[010]$ & $7$ $[111]$ & $14$ $[001110]$ & $6$ $[110]$\\
+        \text{Two's complement} & $2$ $[010]$ & $-1$ $[111]$ & $2$ $[111110]$ & $-2$ $[110]$\\ \\
+
+        \text{Unsigned} & $6$ $[110]$ & $6$ $[110]$ & $36$ $[100100]$ & $4$ $[100]$\\
+        \text{Two's complement} & $-2$ $[110]$ & $-2$ $[110]$ & $4$ $[000100]$ & $-4$ $[100]$\\
+    
+    \end{tabular}
+    \end{flushleft}
+\end{document}
