@@ -1,0 +1,26 @@
+\documentclass{article}
+\title{Two's Complement Negation}
+\author{CSAPP}
+\usepackage{booktabs, amssymb, amsmath, parskip}
+
+\begin{document}
+    \maketitle
+    \begin{flushleft}
+        \textbf{\small PRINCIPLE:} Two's complement negation\\
+        For $x$ in range $Tmin_w \leq \ TMax_w$, Its two's complement negation $-^t_wx$
+        is given by the formula
+
+        \[
+            -^t_wx = {\begin{cases}
+                Tmin_w, & x = Tmin_w\\
+                -x, & x > Tmin_w
+            \end{cases}}
+        \]
+
+        \textbf{\small DERIVATION:} Two's complement negation\\
+        Observe that $Tmin_w + Tmin_w = -2^{w-1} + -2^{w-1} = -2^w$ This would cause
+        negative overflow, and hence $Tmin_w + ^t_w Tmin_w = -2^w + 2^w = 0$ For values
+        of $x$ such that $x > TMin_w$, the value - $x$ can also be represented as a $w-bit$ 
+        two's complement number and their sum will be $-x+x = 0$
+    \end{flushleft}
+\end{document}
