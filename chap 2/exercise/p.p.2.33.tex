@@ -1,0 +1,30 @@
+\documentclass{article}
+\title{Practice Problem 2.33}
+\author{CSAPP}
+\usepackage{booktabs, parskip, amssymb, tabularx}
+
+\begin{document}
+    \maketitle
+    \begin{flushleft}
+        We can represent a bit pattern of length $w=4$ with a single $hex$ digit. For a 
+        two's complement interpretation of these digits, fil in the following table two
+        determine the additive inverses of the digits shown:
+    \end{flushleft}
+    \smallskip
+
+    \begin{center}
+        \begin{tabular}{cccc}
+            \multicolumn{2}{c}{$x$} & \multicolumn{2}{c}{$-^t_4x$}\\
+            \midrule
+            \texttt{Hex} & \texttt{Decimal} & \texttt{Decimal} & \texttt{Hex}\\
+            \midrule
+            $2$ & $2$  & $-2$ &$E$\\
+            $3$ & $3$  & $-3$ &$D$\\
+            $9$ & $9$  & $-9$ &$7$\\
+            $B$ & $11$ & $5$  &$5$\\
+            $C$ & $12$ & $4$  &$4$\\
+        \end{tabular}
+        \\
+        The bits pattern are the same as for unsigned negation
+    \end{center}
+\end{document}
