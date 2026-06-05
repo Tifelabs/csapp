@@ -1,0 +1,45 @@
+\documentclass{article}
+\title{Unsigned Multiplication}
+\author{CSAPP}
+\usepackage{booktabs, amssymb, amsmath, physics, parskip, mathtools, tabularx}
+
+\begin{document}
+\maketitle
+
+\begin{flushleft}
+\textbf{\small PRINCIPLE:} \texttt{Unsigned Multiplication}\\
+For  $x$ and $y$ such that $0 \leq x, y \leq Umax_w$:
+    \[
+        x \ast ^u_wy = (x \cdot y) mod 2^w
+    \]
+
+\smallskip
+\textbf{\small PRINCIPLE:} \texttt{Two's complement Multiplication}\\
+For  $x$ and $y$ such that $Tmin_w \leq x, y \leq Tmax_w$:
+    \[
+        x \ast ^u_wy = U2T_w((x \cdot y) mod 2^w)
+    \]
+
+\textbf{\small DERIAVATION:} \texttt{Unsigned negation}\\
+    When $x = 0$, the additive inverse is clearly $0$. For $x > 0$, consider
+    the value $2^w-x$.Obseerver that this number is in the range $0 < 2^w - x < 2^w$. We can
+    see that $(x+2^w-x) mod 2^w = 2^w mod 2^w = 0$
+\end{flushleft}
+
+\begin{flushleft}
+    \textbf{\small Three-Bit unsigned and two's complement Multiplication} \\
+    \begin{tabular}{ccccc}
+        \toprule
+        \text{Mode} & $x$ & $y$ & $x \cdot y$ & \text{Truncated $x \cdot y$}\\
+        \midrule
+        \text{Unsigned} & $5$ $[101]$ & $3$ $[011]$ & $15$ $[001111]$ & $7$ $[111]$ \\
+        \text{Two's complement} & $-3$ $[101]$ & $3$ $[011]$ & $-9$ $[110111]$ & $-1$ $[111]$\\ \\
+        \text{Unsigned} & $4$ $[100]$ & $7$ $[111]$ & $28$ $[011100]$ & $4$ $[100]$\\
+        \text{Two's complement} & $-4$ $[100]$ & $-1$ $[111]$ & $4$ $[000100]$ & $-4$ $[100]$\\ \\
+        \text{Unsigned} & $3$ $[011]$ & $3$ $[011]$ & $9$ $[001001]$ & $1$ $[001]$\\
+        \text{Two's complement} & $3$ $[011]$ & $3$ $[011]$ & $9$ $[001001]$ & $1$ $[001]$\\ \\
+
+    \end{tabular}
+\end{flushleft}
+
+\end{document}
