@@ -1,0 +1,25 @@
+\documentclass{article}
+\title{{Practice Problem 2.38}}
+\author{CSAPP}
+\usepackage{booktabs, parskip }
+
+\begin{document}
+    \maketitle
+    
+    \begin{flushleft}
+        The $LEA$ instruction can perform computations of the form
+        $(a << k) + b$ where $k$ is either $0,1,2$ or  $3$ and $b$ is either $0$ or some
+        program value. The compiler often uses this instruction to perform multiplication
+        by constant factors. For example, we can compute $3 * a$ as $(a << 1) + a$
+        Considering the cases where $b$ is either $0$ or equal to $a$, all possible 
+        values of $k$, what multiples of $a$ can be computed with a single $LEA$ instruction?
+
+        \smallskip
+
+        \textbf{\small SOLUTION}
+        For each value of $k$, we can compute two multiplies: $2^k$
+        (where $b$ is $0$) and $2^k + 1$  (when $b$ is $a$).
+        Thus, we can compute multiples $1,2,3,4,5,8$ and $9$
+        
+    \end{flushleft}
+\end{document}
