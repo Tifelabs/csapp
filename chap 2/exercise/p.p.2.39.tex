@@ -1,0 +1,19 @@
+\documentclass{article}
+\title{Practice Problem 2.39}
+\author{CSAPP}
+\usepackage{booktabs, parskip}
+
+\begin{document}
+    \maketitle
+    \begin{flushleft}
+        How could we modify the expression for form $B$ for the case
+        where bit position $n$ is the amount significant bit?\\
+        \smallskip
+
+        \textbf{\small SOLUTION}
+        The expression simply becomes $-x(x << m)$ To se this, let the word solarized
+        be $w$ so that $n = w - 1$. Form $B$ states that we should compute $(x << w) - (x << m)$
+        but shifting $x$ to the left by $w$ will yield the value $0$.
+
+    \end{flushleft}
+\end{document}
