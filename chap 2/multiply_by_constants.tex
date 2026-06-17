@@ -1,0 +1,36 @@
+\documentclass{article}
+\title{Multiplying By Constants}
+\author{CSAPP}
+\usepackage{booktabs,parskip,amssymb, amsmath}
+
+\begin{document}
+    \maketitle
+
+    \begin{flushleft}
+        \textbf{\small PRINCIPLE: }\\
+        Let $x$ be the unsigned integer represented by the bit pattern
+        $[x_{w-1}, x_{w-2}, \ldots, x_0]$. Then for any $k \geq 0$, the $w + k-bit$
+        unsigned represention of $x2^k$ is given by $[x_{w-1}, x_{w-2}, \ldots, x_0, 0 \ldots,0]$
+        where $k$ zeros have beeen added to the right.
+        \smallskip
+
+         \textbf{\small DERIVATION: }\\
+         Multiplication by the power of $2$\\
+     \[
+        B2U_{w+k}\bigl([x_{w-1},\dots,x_0,\underbrace{0,\dots,0}_{k\text{ zeros}}]\bigr)
+        = \sum_{i=0}^{w-1} x_i \, 2^{i+k}
+        = \left( \sum_{i=0}^{w-1} x_i \, 2^i \right) \cdot 2^k
+        = x \cdot 2^k
+    \]
+    \\
+        \textbf{\small PRINCIPLE: } Unsigned Multiplication by a power of $2$\\
+        For a $C$ variable $x$ and $k$ with unsigned values $x$ and $k$, such that 
+        $0 \leq k < w$, the $C$ expression $x << k$ yields the value $x \ast ^u_w 2^k$
+
+        \smallskip
+        \textbf{\small PRINCIPLE: } Two's-complement Multiplication by a power of $2$\\
+        For a $C$ variable $x$ and $k$ with twos complement values $x$ and unsigned $k$, such that 
+        $0 \leq k < w$, the $C$ expression $x << k$ yields the value $x \ast ^t_w 2^k$
+        
+    \end{flushleft}
+\end{document}
