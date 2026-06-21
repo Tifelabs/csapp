@@ -1,0 +1,32 @@
+\documentclass{article}
+\title{Practice Problem 2.39}
+\author{CSAPP}
+\usepackage{booktabs, parskip}
+
+\begin{document}
+    \maketitle
+    \begin{flushleft}
+       For a run of ones starting at bit position $n$ down to bit position
+       $m(n\geq m)$, we saw that we can generate two forms of code, $A$ and $B$.
+       How should the compiler decide which form to use?
+
+       \textbf{\small Solution}\\
+        For a run of $k = n - m + 1$ ones, Form A requires $k$ shifts and
+    $k-1$ additions, so its cost grows linearly with $k$ (roughly $2k-1$
+    instructions). Form B requires at most $2$ shifts and $1$ subtraction,
+    a constant cost regardless of $k$. Comparing the two:
+    \begin{itemize}
+        \item $k = 1$: Form A costs $1$ instruction; Form B costs $2$--$3$.
+            Form A wins.
+        \item $k = 2$: Form A costs $3$ instructions; Form B costs $2$--$3$.
+            Roughly tied.
+        \item $k \geq 3$: Form A's cost ($2k-1$) exceeds Form B's constant
+            cost. Form B wins.
+    \end{itemize}
+    The compiler should therefore use Form A for short runs ($k \leq 2$)
+    and switch to Form B once the run length reaches $k = 3$ or more,
+    since at that point the savings from collapsing the run outweigh the
+    fixed overhead of the extra subtraction.
+       
+    \end{flushleft}
+\end{document}
