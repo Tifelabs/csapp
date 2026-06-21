@@ -1,0 +1,24 @@
+\documentclass{article}
+\title{Practice Problem 2.39}
+\author{CSAPP}
+\usepackage{booktabs, parskip, tabularx}
+
+\begin{document}
+    \maketitle
+    \begin{flushleft}
+        For each fo the following values of $K$, find ways to express $x \ast K$
+        using only the specified number of operations, where we consider both additions and 
+        subtractions to have comparable cost. You may need to use some tricks
+        beyoun dthe simple form $A$ and $B$ rules we have considered so far.
+
+        \begin{tabular}{cccc}
+            $K$     & $Shifts$ & $Adds/Subs$ & $Expression$\\
+            \midrule
+            $7$  &   $1$  &  $1$ &   $(x<<3)-x$\\
+            $30$ &   $4$  &  $3$ &   $(x<<4)+(x<<3)+(x<<2)+(x<<1)$\\
+            $28$ &   $2$  &  $1$ &   $(x<<5)-(x<<2)$\\
+            $55$ &   $2$  &  $2$ &   $(x<<6)-(x<<3)- x$\\
+        \end{tabular}
+
+    \end{flushleft}
+\end{document}
