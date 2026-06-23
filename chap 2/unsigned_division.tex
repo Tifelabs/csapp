@@ -1,0 +1,43 @@
+\documentclass{article}
+\title{Unsigned Division by a power of $2$}
+\author{CSAPP}
+\usepackage{booktabs, amssymb, parskip, amssymb, tabularx}
+
+\begin{document}
+    \maketitle
+    \begin{flushleft}
+        \textbf{\small PRINCIPLE:}\\
+        For $C$ variable $x$ and $k$ with an Unsigned values $x$ and $k$, such that
+        $0 \leq k < w$, the $C$ expression $x>>k$ yields the value $[x/2^k]$
+
+        \textbf{\small DERIVATION}: Unsigned Division by the power of $2$\\
+        Let $x$ be the Unsigned integer represented by bit pattern 
+        $[x_{w-1},x_{w-2}, \ldots, x_0]$ and let $k$ be in the range $0\leq k < w$. Let
+        $x'$ be the Unsigned number with $w-k$ bit representation $[x_{w-1}, x_{w-2},\ldots, x_k]$ and 
+        let $x''$ be the unsigned number with $k$ bit representation $[x_{k-1},\ldots, x_0]$ We can 
+        therefore see that $x=2^kx' + x''$ and that $0 \leq x'' < 2^k$. It therefore follows that
+        $[x/2^k] = x'$
+        \bigskip
+
+        \begin{center}
+           Performing a logical right shift of bit vector $[x_{w-1}, x_{w-2},\ldots,x_0]$ by $k$ yields
+           the bit vector $[0,\ldots,0,x_{w-1}, x_{w-2},\ldots, x_k]$
+           \smallbreak
+            \begin{tabular}{cccc}
+                \toprule
+                $k$     & $>>k(binary)$     & \texttt{Decimal}  & $-12,340/2^k$\\
+                \midrule
+                $0$     & \texttt{1100111111001100} & $-12,340$ & $-12,340.0$\\
+                $1$     & \texttt{1110011111100110} & $-6,170$  & $-6,170.0$\\
+                $4$     & \texttt{1111110011111100} & $-772$    & $771.25$\\
+                $8$     & \texttt{1111111111001111} & $-49$     & $-48.203125$\\
+                \bottomrule
+            \end{tabular}
+              \bigskip
+
+            \textit{Applying  arithmetic right shift}
+        \end{center}
+        
+
+    \end{flushleft}
+\end{document}
