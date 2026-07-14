@@ -19,10 +19,23 @@ for all values of x and y, or (2) give values of x and y for which is false (eva
 
 /* 
     (A) (x > 0) || (x-1 < 0)
+        > False
+
     (B) (x & 7) != 7 || (x << 29 < 0)
+        > True
+
     (C) (x * x) >= 0
+        > False 
+        
     (D) x < 0 || -x <= 0
+        > True
+
     (E) x > 0 || -x >= 0
+        > False
+
     (F) x + y == uy + ux
+        > True
+
     (G) x *- y + uy * ux == -x
+        > True
 */
