@@ -1,27 +1,136 @@
 \documentclass{article}
 \title{Practice Problem 2.46}
 \author{CSSAPP}
-\usepackage{booktabs, indentfirst}
+\usepackage{booktabs, indentfirst, amsmath}
 
 \begin{document}
-    \maketitle
+\maketitle
 
-    \begin{flushleft}
-        The imprecision of floating-point arithmetic can have disastrous effects.
-        On February $25, 1991$, during the first Gulf War, an American Patriot Missile battery in 
-        Dharan, Saudi Arabia, failed to intercept an incoming Iraqi Scud missile. The Scud struck an American Army barracks and
-        killed $28$ soldiers. The US General Accounting Office (GAO) conducted a detailed analysis of the failure[76] and determined
-        that the underlying cause was an imprecision in a numeric calculation.
-        In this exercise, you will reproduce part of the GAO's analysis.\\
-        \noindent The Patriot system contains an internal clock, implemented as a counter that is incremented every $0.1$ seconds.
-        To determine the time in seconds, the program will multiply the value of this counter by a $24-bit$ quantity that was a Fractional binary 
-        approximation to $\frac{1}{10}.$ In particular, the binary representation of $\frac{1}{10}$ is the nonterminating sequence $0.000110011[0011] \ldots _2$, where
-        the portion in the brackets is repeated indefinitely. The program approximated $0.1$, as a value $x$, by considering just the first $23-bits$ of the sequence to the
-        right of the binary point: $x = 0.00011001100110011001100$ ref $P.P 2.51$\\
-        
-        \smallbreak
-        A. What is the binary representation of $0.1 - x$?\\
-        B. What is the approximate decimal value of $0.1 - x$? \\
+\begin{flushleft}
 
-    \end{flushleft}
+    The imprecision of floating-point arithmetic can have disastrous effects.
+    On February $25, 1991$, during the first Gulf War, an American Patriot Missile battery in
+    Dharan, Saudi Arabia, failed to intercept an incoming Iraqi Scud missile. The Scud struck an
+    American Army barracks and killed $28$ soldiers. The US General Accounting Office (GAO)
+    conducted a detailed analysis of the failure[76] and determined that the underlying cause was
+    an imprecision in a numeric calculation. In this exercise, you will reproduce part of the
+    GAO's analysis.
+
+    \noindent The Patriot system contains an internal clock, implemented as a counter that is
+    incremented every $0.1$ seconds. To determine the time in seconds, the program will multiply
+    the value of this counter by a $24$-bit quantity that was a fractional binary approximation to
+    $\frac{1}{10}$. In particular, the binary representation of $\frac{1}{10}$ is the
+    nonterminating sequence $0.000110011[0011]\ldots_2$, where the portion in the brackets is
+    repeated indefinitely. The program approximated $0.1$, as a value $x$, by considering just the
+    first $23$ bits of the sequence to the right of the binary point:
+    \[
+        x = 0.00011001100110011001100_2 \quad \text{(ref P.P.\ 2.51)}
+    \]
+
+    \smallbreak
+    \noindent \textbf{A.} What is the binary representation of $0.1 - x$?\\
+    \noindent \textbf{B.} What is the approximate decimal value of $0.1 - x$?\\
+    \noindent \textbf{C.} The clock starts at $0$ when the system is first powered up and keeps
+    counting up from there. In this case, the system had been running for about $100$ hours.
+    What is the difference between the actual time and the time computed by the software?\\
+    \noindent \textbf{D.} The system predicts where an incoming missile will appear based on its
+    velocity and time of the last radar detection. Given that the Scud travels at around $2{,}000$
+    meters per second, how far off was its prediction?
+
+    \bigskip
+    \hrule
+    \bigskip
+
+    \section*{Solution}
+
+    \noindent \textbf{Setup.}
+    The exact binary expansion of $\frac{1}{10}$ is
+    \[
+        0.1 = 0.0001\overline{1001}_2 = 0.000110011001100110011001100\ldots_2
+    \]
+    The Patriot system truncates this to $23$ bits after the binary point:
+    \[
+        x = 0.00011001100110011001100_2
+    \]
+    Note that $x$ agrees with the true value of $0.1$ exactly for the first $23$ bits;
+    the entire error comes from the bits that were chopped off.
+
+    \bigskip
+    \noindent \textbf{Part A: Binary representation of $0.1 - x$}
+
+    \smallskip
+    \noindent Since the leading $23$ bits cancel, subtracting leaves only the
+    remaining (``tail'') bits of $0.1$, shifted right by $23$ places:
+    \[
+        0.1 - x \;=\; \underbrace{0.000\ldots000}_{23 \text{ zeros}}1100110011\overline{0011}\ldots_2
+    \]
+    Equivalently,
+    \[
+        0.1 - x = 2^{-23} \times 0.\overline{1100}_2
+    \]
+
+    \bigskip
+    \noindent \textbf{Part B: Decimal value of $0.1 - x$}
+
+    \smallskip
+    \noindent A repeating $4$-bit binary block $b$ has closed-form value
+    $\dfrac{b}{2^4 - 1}$. Here $b = 1100_2 = 12$, so
+    \[
+        0.\overline{1100}_2 = \frac{12}{15} = 0.8
+    \]
+    Therefore
+    \[
+        0.1 - x = 0.8 \times 2^{-23} = 0.8 \times 1.1920929\times 10^{-7}
+        \approx 9.54 \times 10^{-8}
+    \]
+    So each clock tick (each $0.1$-second interval) undercounts time by
+    approximately \textbf{95 nanoseconds}.
+
+    \bigskip
+    \noindent \textbf{Part C: Accumulated clock error after 100 hours}
+
+    \smallskip
+    \noindent Number of $0.1$-second ticks in $100$ hours:
+    \[
+        100 \text{ hr} \times 3600 \text{ s/hr} = 360{,}000 \text{ s}
+        \quad\Longrightarrow\quad
+        \frac{360{,}000}{0.1} = 3{,}600{,}000 \text{ ticks}
+    \]
+    Total timing error:
+    \[
+        3{,}600{,}000 \times 9.54\times 10^{-8}\text{ s} \approx 0.343 \text{ s}
+    \]
+    The software clock lags the true time by approximately
+    \textbf{0.343 seconds} after 100 hours of continuous operation.
+
+    \bigskip
+    \noindent \textbf{Part D: Resulting position error}
+
+    \smallskip
+    \noindent Using a missile speed of approximately $2000$ m/s:
+    \[
+        \text{Distance error} = v \times \Delta t \approx 2000 \text{ m/s} \times 0.343 \text{ s}
+        \approx 686 \text{ m}
+    \]
+    The system's predicted intercept point was off by roughly
+    \textbf{687 meters} --- enough that the incoming Scud fell outside the
+    interceptor's engagement range.
+
+    \bigskip
+    \noindent \textbf{Summary}
+
+    \begin{center}
+        \begin{tabular}{@{}cl@{}}
+            \toprule
+            Part & Result \\
+            \midrule
+            A & $0.1-x = 0.000\ldots0\,1100110011\ldots_2$ (23 zeros, then repeating $1100$) \\
+            B & $\approx 9.54\times10^{-8}$ \\
+            C & $\approx 0.343$ s clock drift after 100 hrs \\
+            D & $\approx 687$ m position error \\
+            \bottomrule
+        \end{tabular}
+    \end{center}
+
+\end{flushleft}
 \end{document}
