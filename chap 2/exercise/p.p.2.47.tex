@@ -1,7 +1,7 @@
 \documentclass{article}
 \title{Practice Problem 2.47}
 \author{CSSAPP}
-\usepackage{booktabs, amssymb}
+\usepackage{booktabs, amssymb, tabularx}
 
 \begin{document}
     \maketitle
@@ -13,8 +13,22 @@
         The table that follows enumerates the entire nonnegative range for this $5-bit$
         floating-point representation. Fill in the blank table entries using the following 
         directions.\\ 
-        $e:$    The value represented by considering the exponent field to be an unsigned integer.\\
-        $E:$    The value of the exponent after biasing.\\
-        $2^E$:  The numeric weight of the exponent.
+        $e:$        The value represented by considering the exponent field to be an unsigned integer.\\
+        $E:$        The value of the exponent after biasing.\\
+        $2^E$:      The numeric weight of the exponent.\\
+        $f$:        The value of  the fraction\\
+        $M$:        The value of the significant.\\
+        $2^E x M$:  The (unreduced) fractional value of the number.\\
+        $V$:        The reduced fractional value of the number.\\
+        Decimal:    The decimal representation of the number.\\
+        \smallbreak
+        Express the values of $2^E, f, M, 2^E \ast M, V$ either as integers (when possible) or 
+        as fractions of the form $\frac{x}{y}$, where $y$ is the power of $2$. \\
+
+        \bigskip
+        \begin{tabular}{ccccccccc}
+            $Bits$  & $e$   & $E$   & $2^E$ & $f$   & $M$   & $2^E \ast M$ & $V$    & $Decimal$\\
+            \midrule
+        \end{tabular}
     \end{flushleft}
 \end{document}
