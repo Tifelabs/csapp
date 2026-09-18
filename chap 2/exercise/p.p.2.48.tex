@@ -11,5 +11,12 @@
         $0x00 359141$, while the single-precision floating-point number $3,510,593.0$ has 
         hexadecimal representation $0x4A564504$. Derive this floating-point representation
         and explain the correlation between the bits of the integer and floating-point representation.
+
+        \bigskip
+        \textbf{Solution}\\
+        Hexadecimal $0x359141$ is equivalent to binary $[1101011001000101000001]$.
+        Shifting this to right in $21$ places gives $1.101011001000101000001_2 \ast 2^{21}$. We form the 
+        fraction field by dropping the leading 1 and adding two zeros, giving
+        \[10101100100010100000100\]
     \end{flushleft}
 \end{document}
