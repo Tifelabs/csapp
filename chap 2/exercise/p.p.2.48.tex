@@ -17,6 +17,9 @@
         Hexadecimal $0x359141$ is equivalent to binary $[1101011001000101000001]$.
         Shifting this to right in $21$ places gives $1.101011001000101000001_2 \ast 2^{21}$. We form the 
         fraction field by dropping the leading 1 and adding two zeros, giving
-        \[10101100100010100000100\]
+        \[10101100100010100000100\] \\
+        The exponent is formed by adding bias $127$ to $21$, giving $148$ (binary$[10010100]$). Then it 
+        can be combined with a sign field of 0 to give a binary representation.
+        \[01001010010101100100010100000100\]
     \end{flushleft}
 \end{document}
