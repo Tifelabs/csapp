@@ -1,31 +1,54 @@
 \documentclass{article}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{array}
+
 \title{Practice Problem 2.52}
 \author{CSSAPP}
 
 \begin{document}
-    \maketitle
+\maketitle
 
-    \begin{flushleft}
-      Consider the following two $7-bit$ floating-point representation
-      based on the IEEE floating-point format. Neither has a sign bit they can only represent non-negative
-      numbers  
-      \bigskip
+Consider the following two $7$-bit floating-point representations
+based on the IEEE floating-point format.
+Neither has a sign bit; they can only represent non-negative numbers.
 
-      1. Format A\\
-        - There are $k = 3$ exponent bits. The exponent bias is $3$\\
-        - There are $n = 4$ fraction bits.
+\begin{enumerate}
+  \item \textbf{Format A}
+  \begin{itemize}
+    \item There are $k = 3$ exponent bits. The exponent bias is $3$.
+    \item There are $n = 4$ fraction bits.
+  \end{itemize}
 
-      \smallskip
-      2. Format B\\
-        - There are $k = 4$ exponent bits. The exponent bias is $7$.\\
-        - There are $n = 3$ fraction bits\\
-        \smallskip
-        Below, you are given some bit patterns in format A, and your task is to
-        convert them to the closest value in format B. If neccessarry, you should appley the round-to-even 
-        rounding rule. In addition, give the values of numbers given by the format A and format B bit
-        patterns, Give these as whole numbers  (e.g, $17$) or as fraction (e,g $17/64$)        
+  \item \textbf{Format B}
+  \begin{itemize}
+    \item There are $k = 4$ exponent bits. The exponent bias is $7$.
+    \item There are $n = 3$ fraction bits.
+  \end{itemize}
+\end{enumerate}
 
+Below, you are given some bit patterns in Format~A.
+Your task is to convert them to the closest value in Format~B.
+If necessary, you should apply the round-to-even rounding rule.
+In addition, give the values of the numbers given by the Format~A and Format~B bit patterns.
+Give these as whole numbers (e.g., $17$) or as fractions (e.g., $17/64$).
 
+\vspace{1em}
 
-    \end{flushleft}
+\begin{center}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{cccc}
+\toprule
+\multicolumn{2}{c}{\textbf{Format A}} & \multicolumn{2}{c}{\textbf{Format B}} \\
+\cmidrule(lr){1-2} \cmidrule(lr){3-4}
+Bits & Value & Bits & Value \\
+\midrule
+    $011\,0000$ & $1$ & $0111\,000$ & $1$ \\
+    $010\,1001$ & & & \\
+    $110\,1111$ & & & \\
+    $000\,0001$ & & & \\
+\bottomrule
+\end{tabular}
+\end{center}
+
 \end{document}
