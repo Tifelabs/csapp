@@ -1,0 +1,24 @@
+\documentclass{article}
+\title{Sizes of C Data types in x86-64}
+\author{CSAPP}
+\usepackage{booktabs, tabularx}
+
+\begin{document}
+    \maketitle
+
+    \begin{flushleft}
+        \begin{tabular}{cccc}
+            \toprule
+            \texttt{C Declaration} & \texttt{Intel data type} & \texttt{Assembly-code suffix} & \texttt{Size{(bytes)}}\\
+            \midrule
+            \texttt{char}    & \texttt{Byte}          & $b$   & $1$\\
+            \texttt{short}   & \texttt{Word}          & $w$   & $2$\\
+            \texttt{int}     & \texttt{Double Word}   & $l$   & $4$\\
+            \texttt{long}    & \texttt{Quad Word}     & $q$   & $8$\\
+            \texttt{char *}  & \texttt{Quad Word}            & $q$   & $8$\\
+            \texttt{float}   & \texttt{Sigle precision}      & $s$   & $4$\\
+            \texttt{double}  & \texttt{Double precision}     & $l$   & $8$\\
+            \bottomrule
+        \end{tabular}
+    \end{flushleft}
+\end{document}
